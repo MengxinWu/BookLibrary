@@ -1,15 +1,19 @@
 var app = app || {};
 
 (function() {
-	"use strict";
+	// use strict mode
+	'use strict';
 
+	// define Backbone View: BookView
+	// and bind it to global variable: app
 	app.BookView = Backbone.View.extend({
-		tagName: "div",
-		className: "bookContainer",
-		template: _.template($("#bookTemplate").html()),
+		tagName: 'div',
+		className: 'bookContainer',
+		template: _.template($('#bookTemplate').html()),
 
 		events: {
-			"click .delete": "deleteBook"
+			// click...
+			'click .delete': 'deleteBook'
 		},
 
 		render: function() {
@@ -18,8 +22,13 @@ var app = app || {};
 		},
 
 		deleteBook: function() {
+
+			// destroy model
 			this.model.destroy();
+
+			// remove view
 			this.remove();
 		}
 	});
+	
 })();
